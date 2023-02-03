@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Blender Developer - developer.blender.org</title>
+  <title>Developer Portal - developer.blender.org</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Join the global community of Blender developers." />
   <meta property="og:description" content="Join the global community of Blender developers." />
@@ -24,12 +24,28 @@
 
 <body>
 <style>
+  :root {
+    --page-with-header-content-offset: 0;
+  }
+
+  .featured {
+    --featured-max-height: 480px;
+    --featured-min-height: 400px;
+  }
+
   @font-face {
     font-family: "Heebo";
     src: url("assets/fonts/Heebo-VariableFont_wght.ttf") format("truetype-variations");
     font-style: normal;
     font-weight: normal;
     font-variation-settings: "wght" var(--font-weight);
+  }
+
+  @font-face {
+    font-family: "fontutti";
+    src: url("assets/fonts/fontutti.eot") format("embedded-opentype"), url("assets/fonts/fontutti.ttf") format("truetype"), url("assets/fonts/fontutti.woff") format("woff"), url("assets/fonts/fontutti.woff2") format("woff2"), url("assets/fonts/fontutti.svg") format("svg");
+    font-style: normal;
+    font-weight: normal;
   }
 </style>
 
@@ -471,19 +487,6 @@
   }
 </style>
 
-<style>
-  /* Custom styling for developer.blender.org */
-  /* Make sure to start every line with ".navbardev"
-   * so changes affect the developer navbar only. */
-
-  /* Limit navbar width on large screens. */
-  @media (min-width: 1200px) {
-    .navbardev .navbardev-container {
-      max-width: 1170px;
-    }
-  }
-</style>
-
 <div class="navbardev">
   <div class="navbardev-container">
     <nav>
@@ -734,175 +737,553 @@
   });
 </script>
 
-<div class="container-main">
-  <div class="featured header-size-large header-align-x-left header-align-y-center">
+<style>
+  /* Custom styling for developer.blender.org */
+  /* Make sure to start every line with ".navbardev"
+   * so changes affect the developer navbar only. */
+
+  .wp-block-columns {
+    display: flex;
+    flex-direction: column;
+  }
+
+  a.cards-list-item-inner {
+    text-decoration: none;
+  }
+
+  .card-with-icon {
+    flex-direction: row;
+  }
+
+  .card-with-icon .cards-list-icon {
+    display: flex;
+  }
+
+  .card-with-icon svg {
+    margin: 10px 0 0 15px;
+    transition: transform var(--transition-speed) ease-out;
+    width: 60px;
+  }
+
+  .cards-list-vertical {
+    --grid-gap-size: .5rem;
+    grid-template-columns: 100%;
+  }
+
+  .cards-list-vertical svg {
+    width: 40px;
+  }
+
+  .card-hover {
+    transition: background-color var(--transition-speed) ease-out;
+  }
+
+  .card-with-icon.card-hover:hover svg {
+    transform: scale(1.1);
+  }
+
+  .cards-list.card-layout-card-transparent
+  a.cards-list-item-inner.card-hover:hover {
+    background-color: hsl(213, 10%, 12%);
+  }
+
+  /* Limit navbar width on large screens. */
+  @media (min-width: 1200px) {
+    .navbardev .navbardev-container {
+      max-width: 1170px;
+    }
+
+    .wp-block-columns {
+      flex-direction: row;
+    }
+
+    .wp-block-cover__inner-container {
+      /* max-width: 1024px; */
+      margin: 0 auto;
+    }
+  }
+</style>
+
+<div class="container-main" style="background-color: hsl(213, 10%, 8%);">
+  <div class="featured header-align-x-center">
     <div class="container">
       <div class="featured-content">
         <h1 class="font-size-title">Make Blender</h1>
-          <div class="featured-subtitle">Join the global community of Blender developers. Get involved in bug triaging and fixing, etc.</div>
+          <div class="featured-subtitle text-center" style="max-width: 500px">
+            Join the global community of developers
+            working towards the Freedom to Create.
+          </div>
       </div>
     </div>
 
-    <div class="featured-background" style="background-image: url(https://www.blender.org/wp-content/uploads/2019/06/card_invisible_vfx.jpg); background-position-y: 0"></div>
-    <div class="featured-overlay" style="background-color: rgba(0,0,0,0.6)"></div>
-    <div class="featured-credits">Tears of Steel</div>
+    <div class="featured-background" style="background-image: url(https://www.blender.org/wp-content/uploads/2023/02/background_charge_workbench.jpg); background-position-y: 0"></div>
+    <div class="featured-overlay" style="background-image: linear-gradient(hsla(250, 100%, 0%, .2), hsla(250, 100%, 66%, .1) 70%, hsl(213, 10%, 8%))"></div>
+    <div class="featured-credits">
+      <a href="https://www.youtube.com/watch?v=UXqq0ZvbOnk" target="_blank">Charge</a>
+    </div>
   </div>
-  <div class="container">
-    <div class="cards-list card-layout-card-transparent">
-      <div class="cards-list-item-outer">
-        <div class="cards-list-item-inner">
-          <a href="#" class="cards-list-item-thumbnail">
-            <img width="1280" height="720" src="https://picsum.photos/seed/a/1280/720" class="img-fluid wp-post-image" alt="Gitea Diaries" decoding="async" title="Gitea Diaries: Part 3">
-          </a>
-          <a class="cards-list-item-title" href="#">Build Blender</a>
-          <a class="cards-list-item-excerpt" href="#"><p>Development infrastructure for bug reporting, Blender developers and other contributors. Blender uses its own independent facilities for tracking, review and git versioning.</p>
-          </a>
-        </div>
-      </div>
-      <div class="cards-list-item-outer">
-        <div class="cards-list-item-inner">
-          <a href="#" class="cards-list-item-thumbnail">
-            <img width="1280" height="720" src="https://picsum.photos/seed/b/1280/720" class="img-fluid wp-post-image" alt="Gitea Diaries" decoding="async" title="Gitea Diaries: Part 3">
-          </a>
-          <a class="cards-list-item-title" href="#">Getting Started</a>
-          <a class="cards-list-item-excerpt" href="#"><p>Getting started as developer.</p>
-          </a>
-        </div>
-      </div>
-      <div class="cards-list-item-outer">
-        <div class="cards-list-item-inner">
-          <a href="#" class="cards-list-item-thumbnail">
-            <img width="1280" height="720" src="https://picsum.photos/seed/c/1280/720" class="img-fluid wp-post-image" alt="Gitea Diaries" decoding="async" title="Gitea Diaries: Part 3">
-          </a>
-          <a class="cards-list-item-title" href="#">Add-on development</a>
-          <a class="cards-list-item-excerpt" href="#"><p>Info for add-on.</p>
-          </a>
-        </div>
-      </div>
-      <div class="cards-list-item-outer">
-        <div class="cards-list-item-inner">
-          <a href="#" class="cards-list-item-thumbnail">
-            <img width="1280" height="720" src="https://picsum.photos/seed/c/1280/720" class="img-fluid wp-post-image" alt="Gitea Diaries" decoding="async" title="Gitea Diaries: Part 3">
-          </a>
-          <a class="cards-list-item-title" href="#">Add-on development</a>
-          <a class="cards-list-item-excerpt" href="#"><p>Info for add-on.</p>
-          </a>
-        </div>
-      </div>
-      <div class="cards-list-item-outer">
-        <div class="cards-list-item-inner">
-          <a href="#" class="cards-list-item-thumbnail">
-            <img width="1280" height="720" src="https://picsum.photos/seed/c/1280/720" class="img-fluid wp-post-image" alt="Gitea Diaries" decoding="async" title="Gitea Diaries: Part 3">
-          </a>
-          <a class="cards-list-item-title" href="#">Add-on development</a>
-          <a class="cards-list-item-excerpt" href="#"><p>Info for add-on.</p>
-          </a>
-        </div>
-      </div>
-      <div class="cards-list-item-outer">
-        <div class="cards-list-item-inner">
-          <a href="#" class="cards-list-item-thumbnail">
-            <img width="1280" height="720" src="https://picsum.photos/seed/c/1280/720" class="img-fluid wp-post-image" alt="Gitea Diaries" decoding="async" title="Gitea Diaries: Part 3">
-          </a>
-          <a class="cards-list-item-title" href="#">Add-on development</a>
-          <a class="cards-list-item-excerpt" href="#"><p>Info for add-on.</p>
-          </a>
+
+  <section>
+    <div class="container">
+      <div class="wp-block-cover__inner-container py-5">
+        <div class="is-layout-constrained wp-block-group">
+          <div class="is-layout-flex wp-container-12 wp-block-columns">
+            <div class="is-layout-flow wp-block-column d-flex flex-column justify-content-center w-50">
+              <div id="paragraph-plus-block_1" class="wp-block-paragraph-plus mb-2">
+                <p>
+                  GET<br>
+                  <strong>STARTED</strong>
+                </p>
+                <style type="text/css">
+                  #paragraph-plus-block_1 {
+                    font-size: 56px;
+                  }
+
+                  #paragraph-plus-block_1 {
+                    background-image: linear-gradient(45deg, hsl(329, 100%, 60%) 0%, rgb(255, 200, 125));
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                  }
+                </style>
+              </div>
+              <p class="lead" style="max-width: 480px">
+                Start by building Blender, read the docs while it compiles,
+                and dive deep into Blender's architecture.
+              </p>
+            </div>
+            <div class="is-layout-flow wp-block-column d-flex flex-column justify-content-center w-50">
+
+              <div class="cards-list cards-list-vertical card-layout-card-transparent">
+                <div class="cards-list-item-outer">
+                  <a class="cards-list-item-inner card-with-icon card-hover pt-2" href="https://wiki.blender.org/wiki/Building_Blender">
+                    <div class="cards-list-item-icon">
+                      <svg fill="none" stroke="hsl(339, 100%, 69%)" stroke-width="0.75" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z">
+                        </path>
+                      </svg>
+                    </div>
+                    <div>
+                      <div class="cards-list-item-title pb-0">
+                        <strong>Build Blender</strong>
+                      </div>
+                      <div class="cards-list-item-excerpt">
+                        <p>
+                          The first step is to compile your own Blender.
+                        </p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="cards-list-item-outer">
+                  <a class="cards-list-item-inner card-with-icon card-hover pt-2" href="https://wiki.blender.org/wiki/Developer_Intro">
+                    <div class="cards-list-item-icon">
+                      <svg fill="none" stroke="hsl(339, 100%, 69%)" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zM12 2.25V4.5m5.834.166l-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243l-1.59-1.59">
+                        </path>
+                      </svg>
+                    </div>
+                    <div>
+                      <div class="cards-list-item-title pb-0">
+                        <strong>Developer Introduction</strong>
+                      </div>
+                      <div class="cards-list-item-excerpt">
+                        <p>
+                          Advice and setup to become a Blender developer.
+                        </p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="cards-list-item-outer">
+                  <a class="cards-list-item-inner card-with-icon card-hover pt-2" href="https://wiki.blender.org/wiki/Source">
+                    <div class="cards-list-item-icon">
+                      <svg fill="none" stroke="hsl(339, 100%, 69%)" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25">
+                        </path>
+                      </svg>
+                    </div>
+                    <div>
+                      <div class="cards-list-item-title pb-0">
+                        <strong>Code & Design Docs</strong>
+                      </div>
+                      <div class="cards-list-item-excerpt">
+                        <p>
+                          Documentation about Blender's architecture.
+                        </p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-<!-- main container -->
-<div class="footer-navigation pt-5">
-  <div class="container">
-    <div class="row">
-      <div class="col-6 col-md-2">
-        <a href="https://www.blender.org/download/" class="sitemap-title">Download</a>
-        <ul>
-          <li><a href="https://www.blender.org/download/" title="Download Blender">Latest Blender</a></li>
-          <li><a href="https://www.blender.org/download/lts/" title="Blender Long-term Support">Blender LTS</a></li>
-          <li><a href="https://www.blender.org/download/releases/" title="Release Notes">Release Notes</a></li>
-          <li><a href="https://www.blender.org/download/requirements/" title="Requirements">Requirements</a></li>
-          <li><a href="https://www.blender.org/download/previous-versions/" title="Previous Versions">Previous Versions</a></li>
-          <li><a href="https://builder.blender.org/" title="Experimental Builds">Experimental Builds</a></li>
-          <li><a href="https://developer.blender.org/diffusion/B/" title="Source Code">Source Code</a></li>
-        </ul>
+  </section>
 
-        <a href="https://www.blender.org/news/" title="Articles" class="sitemap-title">Articles</a>
-        <ul>
-          <li><a href="https://www.blender.org/category/news/" title="News">News</a></li>
-          <li><a href="https://www.blender.org/category/press/" title="Press Releases">Press Releases</a></li>
-          <li><a href="https://studio.blender.org/blog/" title="Blender Studio">Studio Blog</a></li>
-        </ul>
-      </div>
-      <div class="col-6 col-md-2">
-        <a href="https://www.blender.org/about/" class="sitemap-title">About</a>
-        <ul>
-          <li><a href="https://www.blender.org/about/foundation/" title="Blender Foundation">Blender Foundation</a></li>
-          <li><a href="https://www.blender.org/about/institute/" title="Blender Institute">Blender Institute</a></li>
-          <li><a href="https://www.blender.org/about/studio/" title="Blender Studio">Blender Studio</a></li>
-          <li><a href="https://www.blender.org/about/license/" title="License">License</a></li>
-          <li><a href="https://www.blender.org/about/logo/" title="Logo &amp; Trademark">Logo &amp; Trademark</a></li>
-          <li><a href="https://www.blender.org/about/credits/" title="Credits">Credits</a></li>
-          <li><a href="https://www.blender.org/about/website/" title="Website">Website</a></li>
-          <li><a href="https://www.blender.org/privacy-policy/" title="Privacy Policy">Privacy Policy</a></li>
-        </ul>
-        <div class="sitemap-title">Organization</div>
-        <ul>
-          <li><a href="https://www.blender.org/about/people/" title="People">People</a></li>
-          <li><a href="https://www.blender.org/jobs/" title="Jobs">Jobs</a></li>
-        </ul>
-      </div>
-      <div class="col-6 col-md-2">
-        <a href="https://www.blender.org/get-involved/" class="sitemap-title">Get Involved</a>
-        <ul>
-          <li><a href="https://www.blender.org/get-involved/dashboard/" title="Dashboard">Dashboard</a></li>
-          <li><a href="https://www.blender.org/get-involved/developers/" title="Development">Development</a></li>
-          <li><a href="https://www.blender.org/get-involved/documenters/" title="Documentation">Documentation</a></li>
-          <li><a href="https://www.blender.org/get-involved/" title="Education">Education</a></li>
-          <li><a href="https://www.blender.org/get-involved/user-stories/" title="User Stories">User Stories</a></li>
-        </ul>
+  <hr class="wp-block-separator my-3">
 
-        <a href="https://fund.blender.org/" class="sitemap-title">Donate</a>
-        <ul>
-          <li><a href="https://fund.blender.org/" title="Blender Development Fund">Development Fund</a></li>
-          <li><a href="https://www.blender.org/about/donations/" title="One-time Donations">One-time Donations</a></li>
-        </ul>
-        <a href="https://studio.blender.org/" title="Blender Studio" class="sitemap-title">Blender Studio</a>
-        <a href="https://www.blender.org/conference/" title="Blender Conference" class="sitemap-title">Blender Conference</a>
-      </div>
-      <div class="col-6 col-md-2">
-        <a href="https://code.blender.org/" class="sitemap-title">Developers</a>
-        <ul>
-          <li><a href="https://code.blender.org/" title="Developers Blog">Blog</a></li>
-          <li><a href="https://devtalk.blender.org/" title="Developers Forum">Forum</a></li>
-          <li><a href="https://wiki.blender.org/" title="Developers Wiki">Wiki</a></li>
-          <li><a href="https://developer.blender.org/" title="Developers Portal">Developers Portal</a></li>
-          <li><a href="https://docs.blender.org/api/current/" title="Python API">Python API</a></li></ul><a href="https://www.blender.org/support/" class="sitemap-title">Support</a>
-        <ul>
-          <li><a href="https://www.blender.org/community/" title="Community">Community</a></li>
-          <li><a href="https://docs.blender.org/manual/" title="Manual">Manual</a></li>
-          <li><a href="https://www.blender.org/support/faq/" title="FAQ">FAQ</a></li>
-          <li><a href="https://www.blender.org/support/tutorials/" title="Tutorials">Tutorials</a></li>
-        </ul>
-        <a href="https://opendata.blender.org/" title="Open Data" class="sitemap-title">Open Data</a>
-      </div>
-      <div class="col-6 col-md-3 social">
-        <a href="https://twitter.com/blender" class="sitemap-title">Follow Blender</a>
-        <ul class="social-icons">
-          <li><a href="https://youtube.com/BlenderFoundation" title="Blender's Official YouTube channel" target="_blank" class="social-icons__youtube"><i class="fa fa-youtube-play"></i>YouTube</a></li>
-          <li><a href="https://twitter.com/blender" title="Follow Blender on Twitter" target="_blank" class="social-icons__twitter"><i class="fa fa-twitter"></i>Twitter</a></li>
-          <li><a href="https://instagram.com/blender.official/" title="Follow Blender on Instagram" target="_blank" class="social-icons__instagram"><i class="fa fa-instagram"></i>Instagram</a></li>
-          <li><a href="https://www.facebook.com/YourOwn3DSoftware/" title="Follow Blender on Facebook" target="_blank" class="social-icons__facebook"><i class="fa fa-facebook"></i>Facebook</a></li>
-          <li><a href="https://www.linkedin.com/company/blender-org/" title="Follow Blender on LinkedIn" target="_blank" class="social-icons__linkedin"><i class="fa fa-linkedin"></i>LinkedIn</a></li>
-        </ul>
+  <section>
+    <div class="container">
+      <div class="wp-block-cover__inner-container my-4 py-4">
+        <div class="is-layout-constrained wp-block-group">
+          <div class="is-layout-flex wp-container-12 wp-block-columns">
+
+            <div class="is-layout-flow wp-block-column d-flex flex-column justify-content-center pr-6 w-50">
+
+              <div class="cards-list cards-list-vertical card-layout-card-transparent">
+                <div class="cards-list-item-outer">
+                  <a class="cards-list-item-inner card-with-icon card-hover pt-2" href="https://wiki.blender.org/wiki/Process/Bug_Reports">
+                    <div class="cards-list-item-icon">
+                      <svg fill="none" stroke="hsl(164, 100%, 50%)" stroke-width="0.75" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M12 12.75c1.148 0 2.278.08 3.383.237 1.037.146 1.866.966 1.866 2.013 0 3.728-2.35 6.75-5.25 6.75S6.75 18.728 6.75 15c0-1.046.83-1.867 1.866-2.013A24.204 24.204 0 0112 12.75zm0 0c2.883 0 5.647.508 8.207 1.44a23.91 23.91 0 01-1.152 6.06M12 12.75c-2.883 0-5.647.508-8.208 1.44.125 2.104.52 4.136 1.153 6.06M12 12.75a2.25 2.25 0 002.248-2.354M12 12.75a2.25 2.25 0 01-2.248-2.354M12 8.25c.995 0 1.971-.08 2.922-.236.403-.066.74-.358.795-.762a3.778 3.778 0 00-.399-2.25M12 8.25c-.995 0-1.97-.08-2.922-.236-.402-.066-.74-.358-.795-.762a3.734 3.734 0 01.4-2.253M12 8.25a2.25 2.25 0 00-2.248 2.146M12 8.25a2.25 2.25 0 012.248 2.146M8.683 5a6.032 6.032 0 01-1.155-1.002c.07-.63.27-1.222.574-1.747m.581 2.749A3.75 3.75 0 0115.318 5m0 0c.427-.283.815-.62 1.155-.999a4.471 4.471 0 00-.575-1.752M4.921 6a24.048 24.048 0 00-.392 3.314c1.668.546 3.416.914 5.223 1.082M19.08 6c.205 1.08.337 2.187.392 3.314a23.882 23.882 0 01-5.223 1.082">
+                        </path>
+                      </svg>
+                    </div>
+                    <div>
+                      <div class="cards-list-item-title">
+                        <strong>Report & Triage Bugs</strong>
+                      </div>
+                      <div class="cards-list-item-excerpt">
+                        <p>
+                          Make Blender more stable
+                          by reporting issues, or triaging others.
+                        </p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="cards-list-item-outer">
+                  <a class="cards-list-item-inner card-with-icon card-hover pt-2" href="https://builder.blender.org/download/daily/">
+                    <div class="cards-list-item-icon">
+                      <svg fill="none" stroke="hsl(164, 100%, 50%)" stroke-width="1.0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z">
+                        </path>
+                      </svg>
+                    </div>
+                    <div>
+                      <div class="cards-list-item-title">
+                        <strong>Daily Builds</strong>
+                      </div>
+                      <div class="cards-list-item-excerpt">
+                        <p>
+                          Fresh fixes and experimental features, every day.
+                        </p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="cards-list-item-outer">
+                  <a class="cards-list-item-inner card-with-icon card-hover pt-2" href="https://wiki.blender.org/wiki/Process/Addons">
+                    <div class="cards-list-item-icon">
+                      <svg fill="none" stroke="hsl(164, 100%, 50%)" stroke-width="1.0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z">
+                        </path>
+                      </svg>
+                    </div>
+                    <div>
+                      <div class="cards-list-item-title">
+                        <strong>Add-on Development</strong>
+                      </div>
+                      <div class="cards-list-item-excerpt">
+                        <p>
+                          Extend Blender beyond its capabilities.
+                        </p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="is-layout-flow wp-block-column d-flex flex-column justify-content-center w-50">
+
+              <div id="paragraph-plus-block_getinvolved" class="wp-block-paragraph-plus mb-2">
+                <p>
+                  DO<br>
+                  <strong>YOUR BIT</strong>
+                </p>
+                <style type="text/css">
+                  #paragraph-plus-block_getinvolved {
+                    font-size: 56px;
+                  }
+
+                  #paragraph-plus-block_getinvolved {
+                    background-image: linear-gradient(45deg, hsl(149, 100%, 50%) 0%, hsl(170, 100%, 96%));
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                  }
+                </style>
+              </div>
+              <p class="lead" style="max-width: 480px">
+                Contribute by reporting issues, triage bugs from others,
+                test and give feedback on experimental builds.
+              </p>
+              <p class="lead" style="max-width: 480px">
+                You don't need to be a developer to contribute to Blender.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
+
+  <hr class="wp-block-separator my-3">
+
+  <!-- Stay up-to-date  -->
+  <section class="mb-6">
+    <div class="container">
+      <div class="wp-block-cover__inner-container my-4 py-4">
+
+        <div class="is-layout-constrained wp-block-group">
+          <div class="is-layout-flex wp-container-12 wp-block-columns">
+
+            <div class="is-layout-flow wp-block-column d-flex flex-column justify-content-center w-50">
+
+              <div id="paragraph-plus-block_stayupdtodate" class="wp-block-paragraph-plus mb-2">
+                <p>
+                  <strong>STAY</strong>
+                  <br>UP-TO-DATE
+                </p>
+                <style type="text/css">
+                  #paragraph-plus-block_stayupdtodate {
+                    font-size: 56px;
+                  }
+
+                  #paragraph-plus-block_stayupdtodate {
+                    background-image: linear-gradient(45deg, hsl(221, 100%, 61%) 0%, hsl(256, 100%, 84%));
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                  }
+                </style>
+              </div>
+              <p class="lead" style="max-width: 480px">
+                One of the goals of Blender development is to be as
+                transparent as possible.</p>
+              <p class="lead" style="max-width: 480px">
+                Sharing the notes from meetings,
+                live streaming weekly,
+                and sharing code and design documentation.
+              </p>
+            </div>
+
+            <div class="is-layout-flow wp-block-column d-flex flex-column justify-content-center w-50">
+
+              <div class="cards-list cards-list-vertical card-layout-card-transparent">
+                <div class="cards-list-item-outer">
+                  <a class="cards-list-item-inner card-with-icon card-hover pt-2" href="https://code.blender.org/">
+                    <div class="cards-list-item-icon">
+                      <svg fill="none" stroke="hsl(221deg, 100%, 64%)" stroke-width="1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10">
+                        </path>
+                      </svg>
+                    </div>
+                    <div>
+                      <div class="cards-list-item-title">
+                        <strong>Developer Blog</strong>
+                      </div>
+                      <div class="cards-list-item-excerpt">
+                        <p>
+                          Blender developers not only write code, but also articles on progress
+                          and implementation of their work.
+                        </p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="cards-list-item-outer">
+                  <div class="cards-list-item-inner card-with-icon card-hover pt-2">
+                    <div class="cards-list-item-icon">
+                      <svg fill="none" stroke="hsl(221deg, 100%, 64%)" stroke-width="1.0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z">
+                        </path>
+                      </svg>
+                    </div>
+                    <div>
+                      <div class="cards-list-item-title">
+                        <strong>Catch-up</strong>
+                      </div>
+                      <div class="cards-list-item-excerpt">
+                        <p>What's new and what's up. Every week notes and live streams.</p>
+                        <ul class="list-unstyled list-horizontal">
+                          <li>
+                            <a class="badge badge-primary badge-md"
+                              href="https://www.youtube.com/playlist?list=PLa1F2ddGya_87HJ72v_IgKUTNLIXSMfvB">
+                              <i class="i-youtube"></i>
+                              Blender Today
+                            </a>
+                          </li>
+                          <li>
+                            <a class="badge badge-primary badge-md" href="https://devtalk.blender.org/c/blender/weekly-updates/14">
+                              Weekly Meetings
+                            </a>
+                          </li>
+                          <li>
+                            <a class="badge badge-primary badge-md" href="https://devtalk.blender.org/c/blender/meetings-archive/18">
+                              Module Meetings
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="cards-list-item-outer">
+                  <div class="cards-list-item-inner card-with-icon card-hover pt-2">
+                    <div class="cards-list-item-icon">
+                      <svg fill="none" stroke="hsl(221deg, 100%, 64%)" stroke-width="1.0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z">
+                        </path>
+                      </svg>
+                    </div>
+                    <div>
+                      <div class="cards-list-item-title">
+                        <strong>Stay Social</strong>
+                      </div>
+                      <div class="cards-list-item-excerpt">
+                        <p>
+                          Watch developers code on YouTube live streams, and follow the latest updates
+                          on Twitter.
+                        </p>
+                        <div class="btn-row">
+                          <a class="btn btn-secondary" href="https://www.youtube.com/BlenderDevelopers" target="_blank">
+                            <i class="i-youtube"></i>
+                            YouTube
+                          </a>
+                          <a class="btn btn-secondary" href="https://www.twitter.com/BlenderDev" target="_blank">
+                            <i class="i-twitter"></i>
+                            Twitter
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- main container -->
+  <div class="footer-navigation pt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-6 col-md-2">
+          <a href="https://www.blender.org/download/" class="sitemap-title">Download</a>
+          <ul>
+            <li><a href="https://www.blender.org/download/" title="Download Blender">Latest Blender</a></li>
+            <li><a href="https://www.blender.org/download/lts/" title="Blender Long-term Support">Blender LTS</a></li>
+            <li><a href="https://www.blender.org/download/releases/" title="Release Notes">Release Notes</a></li>
+            <li><a href="https://www.blender.org/download/requirements/" title="Requirements">Requirements</a></li>
+            <li><a href="https://www.blender.org/download/previous-versions/" title="Previous Versions">Previous Versions</a></li>
+            <li><a href="https://builder.blender.org/" title="Experimental Builds">Experimental Builds</a></li>
+            <li><a href="https://developer.blender.org/diffusion/B/" title="Source Code">Source Code</a></li>
+          </ul>
+
+          <a href="https://www.blender.org/news/" title="Articles" class="sitemap-title">Articles</a>
+          <ul>
+            <li><a href="https://www.blender.org/category/news/" title="News">News</a></li>
+            <li><a href="https://www.blender.org/category/press/" title="Press Releases">Press Releases</a></li>
+            <li><a href="https://studio.blender.org/blog/" title="Blender Studio">Studio Blog</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md-2">
+          <a href="https://www.blender.org/about/" class="sitemap-title">About</a>
+          <ul>
+            <li><a href="https://www.blender.org/about/foundation/" title="Blender Foundation">Blender Foundation</a></li>
+            <li><a href="https://www.blender.org/about/institute/" title="Blender Institute">Blender Institute</a></li>
+            <li><a href="https://www.blender.org/about/studio/" title="Blender Studio">Blender Studio</a></li>
+            <li><a href="https://www.blender.org/about/license/" title="License">License</a></li>
+            <li><a href="https://www.blender.org/about/logo/" title="Logo &amp; Trademark">Logo &amp; Trademark</a></li>
+            <li><a href="https://www.blender.org/about/credits/" title="Credits">Credits</a></li>
+            <li><a href="https://www.blender.org/about/website/" title="Website">Website</a></li>
+            <li><a href="https://www.blender.org/privacy-policy/" title="Privacy Policy">Privacy Policy</a></li>
+          </ul>
+          <div class="sitemap-title">Organization</div>
+          <ul>
+            <li><a href="https://www.blender.org/about/people/" title="People">People</a></li>
+            <li><a href="https://www.blender.org/jobs/" title="Jobs">Jobs</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md-2">
+          <a href="https://www.blender.org/get-involved/" class="sitemap-title">Get Involved</a>
+          <ul>
+            <li><a href="https://www.blender.org/get-involved/dashboard/" title="Dashboard">Dashboard</a></li>
+            <li><a href="https://www.blender.org/get-involved/developers/" title="Development">Development</a></li>
+            <li><a href="https://www.blender.org/get-involved/documenters/" title="Documentation">Documentation</a></li>
+            <li><a href="https://www.blender.org/get-involved/" title="Education">Education</a></li>
+            <li><a href="https://www.blender.org/get-involved/user-stories/" title="User Stories">User Stories</a></li>
+          </ul>
+
+          <a href="https://fund.blender.org/" class="sitemap-title">Donate</a>
+          <ul>
+            <li><a href="https://fund.blender.org/" title="Blender Development Fund">Development Fund</a></li>
+            <li><a href="https://www.blender.org/about/donations/" title="One-time Donations">One-time Donations</a></li>
+          </ul>
+          <a href="https://studio.blender.org/" title="Blender Studio" class="sitemap-title">Blender Studio</a>
+          <a href="https://www.blender.org/conference/" title="Blender Conference" class="sitemap-title">Blender Conference</a>
+        </div>
+        <div class="col-6 col-md-2">
+          <a href="https://code.blender.org/" class="sitemap-title">Developers</a>
+          <ul>
+            <li><a href="https://code.blender.org/" title="Developers Blog">Blog</a></li>
+            <li><a href="https://devtalk.blender.org/" title="Developers Forum">Forum</a></li>
+            <li><a href="https://wiki.blender.org/" title="Developers Wiki">Wiki</a></li>
+            <li><a href="https://developer.blender.org/" title="Developers Portal">Developers Portal</a></li>
+            <li><a href="https://docs.blender.org/api/current/" title="Python API">Python API</a></li></ul><a href="https://www.blender.org/support/" class="sitemap-title">Support</a>
+          <ul>
+            <li><a href="https://www.blender.org/community/" title="Community">Community</a></li>
+            <li><a href="https://docs.blender.org/manual/" title="Manual">Manual</a></li>
+            <li><a href="https://www.blender.org/support/faq/" title="FAQ">FAQ</a></li>
+            <li><a href="https://www.blender.org/support/tutorials/" title="Tutorials">Tutorials</a></li>
+          </ul>
+          <a href="https://opendata.blender.org/" title="Blender Benchmark and Open Data" class="sitemap-title">Benchmark</a>
+        </div>
+        <div class="col-6 col-md-3 social">
+          <a href="https://twitter.com/blender" class="sitemap-title">Follow Blender</a>
+          <ul class="social-icons">
+            <li><a href="https://youtube.com/BlenderFoundation" title="Blender's Official YouTube channel" target="_blank" class="social-icons__youtube"><i class="i-youtube"></i>YouTube</a></li>
+            <li><a href="https://twitter.com/blender" title="Follow Blender on Twitter" target="_blank" class="social-icons__twitter"><i class="i-twitter"></i>Twitter</a></li>
+            <li><a href="https://instagram.com/blender.official/" title="Follow Blender on Instagram" target="_blank" class="social-icons__instagram"><i class="i-instagram"></i>Instagram</a></li>
+            <li><a href="https://www.facebook.com/YourOwn3DSoftware/" title="Follow Blender on Facebook" target="_blank" class="social-icons__facebook"><i class="i-facebook"></i>Facebook</a></li>
+            <li><a href="https://www.linkedin.com/company/blender-org/" title="Follow Blender on LinkedIn" target="_blank" class="social-icons__linkedin"><i class="i-linkedin"></i>LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
 </div>
 
 <footer class="footer-note">
   Artistic freedom starts with Blender
-  <i class="fa fa-heart-o"></i>
+  <i class="i-heart"></i>
   <span>The Free and Open Source 3D Creation Suite</span>
 
   <div id="hop" title="Be awesome in space"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
